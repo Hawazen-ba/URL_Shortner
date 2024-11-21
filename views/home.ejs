@@ -1,0 +1,62 @@
+<div class="container ">
+    <div class="row">
+        <div class="my-5 d-flex" style="justify-content: center; align-items:center;">
+            <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: 45px">URL Shortner</h1>
+        </div>
+        
+        <% if(typeof(error) !== 'undefined'){ %>
+            <div class=" col-md-8 mx-auto mb-2 pb-2 alert alert-warning alert-dismissible fade show" role="alert" style="height: 50px;">
+                <strong ><%- error%></strong> 
+                <button 
+                type="button" 
+                class="btn-close" 
+                data-bs-dismiss="alert" 
+                aria-label="Close"
+                >
+            </button>
+              </div>
+              
+            <%}%>
+           <% if(typeof(success) !== 'undefined'){ %>   <!-- if success is present -->
+                <div class=" col-md-8 mx-auto mb-2 pb-2 alert alert-success alert-dismissible fade show" role="alert" style="height: 50px;">
+                    Your new URL is: <strong ><%- success %></strong> 
+                    <button 
+                    type="button" 
+                    class="btn-close" 
+                    data-bs-dismiss="alert" 
+                    aria-label="Close"
+                    >
+                </button>
+                  </div>
+                  
+                <%}%> 
+        <div class="col-md-8 shadow my-3 mx-auto p-5 " style="background-color: rgba(255, 255, 255, 0.612); border-radius: 20px; ">
+          <form action="/" method="post">
+            <div class="form-group ">
+                <label for="redirectedUrl" class="my-1" style="font-family: 'Times New Roman', Times, serif; font-size: 19px">Enter the URL you want to shortner</label>
+                <input 
+                type="url" 
+                placeholder="Enter the original URL" 
+                name="redirectedUrl" 
+                class="form-control my-1 shadow"
+                />
+            </div>
+            <div class="form-group  ">
+                <label for="name" class="my-3" style="font-family: 'Times New Roman', Times, serif; font-size: 19px">Enter the new URL</label>
+                <div class="d-flex align-items-center justify-content-center">
+                    <p class="mt-3 mx-1">http://<%- host %>/     </p>
+                    <input 
+                    type="text" 
+                    placeholder="Enter custom URL" 
+                    name="name" 
+                    class="form-control my-1 shadow"
+                    />
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark shadow-sm my-3">Shorten URL</button>
+            </div>
+          </form>
+        </div>
+    </div>
+</div>
